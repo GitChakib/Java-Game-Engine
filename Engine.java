@@ -21,9 +21,16 @@ public class Engine implements Runnable{
 
 public Engine() {
 
-    window = new Jframe("Simulation");
+    window = new JFrame("Simulation");
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     window.setResizable(false);
 
-}
+    canvas = new Canvas();
+    canvas.setPreferredSize(new Dimension(width, height));
+
+    window.add(canvas);
+    window.pack();
+    window.setLocationRelativeTo(null); 
+    window.setVisible(true);
+  }
 }
