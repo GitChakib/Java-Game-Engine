@@ -32,5 +32,18 @@ public Engine() {
     window.pack();
     window.setLocationRelativeTo(null); 
     window.setVisible(true);
+
   }
+
+  public void start(){
+    if(isRunning()) return;
+
+
+
+
+
+
+  }
+
+
 }
