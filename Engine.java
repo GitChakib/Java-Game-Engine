@@ -35,15 +35,19 @@ public Engine() {
 
   }
 
-  public void start(){
-    if(isRunning()) return;
+  public void startgame(){
+    if(isRunning) return;
+    isRunning = true;
+    engineThread = new Thread(this, "Engine Thread");
+    engineThread.start();
+  }
 
-
-
+  @Override
+  public void run() {
+    canvas.createBufferStrategy(2);
+    BufferStrategy bufferStrategy = canvas.getBufferStrategy();
 
 
 
   }
-
-
 }
