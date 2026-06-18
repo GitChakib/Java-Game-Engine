@@ -47,8 +47,8 @@ public Engine() {
     }
 
     private void render(Graphics2D g2d) {
-      g2d.setColor(java.awt.Color.GREEN);
-      g2d.drawString("Engine working", 20, 30);
+      g2d.setColor(java.awt.Color.BLACK);
+      g2d.drawString("Engine working", 400, 300);
     }
 
 
