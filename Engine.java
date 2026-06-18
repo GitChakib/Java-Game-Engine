@@ -47,6 +47,9 @@ public Engine() {
     canvas.createBufferStrategy(2);
     BufferStrategy bufferStrategy = canvas.getBufferStrategy();
 
+     double lastTime = System.nanoTime() / 1_000_000_000.0;
+     double accumulator = 0.0;
+
 
 
   }
