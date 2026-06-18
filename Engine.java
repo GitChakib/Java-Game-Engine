@@ -1,8 +1,8 @@
-import javax.swing.JFrame;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
+import javax.swing.JFrame;
 
 public class Engine implements Runnable{
 
@@ -17,7 +17,7 @@ public class Engine implements Runnable{
     private final int height = 600;
 
     private final double fps = 60.0;
-    private final double tickrate = 1.0 / fps;
+    private final double timeStep = 1.0 / fps;
 
 public Engine() {
 
@@ -36,11 +36,22 @@ public Engine() {
   }
 
   public void startgame(){
-    if(isRunning) return;
-    isRunning = true;
-    engineThread = new Thread(this, "Engine Thread");
-    engineThread.start();
+    if(running) return;
+    running = true;
+    thread = new Thread(this, "Engine Thread");
+    thread.start();
   }
+
+   private void update(double dt) {
+        System.out.println("frame generated with timestep: " + dt);
+    }
+
+    private void render(Graphics2D g2d) {
+      g2d.setColor(java.awt.Color.GREEN);
+      g2d.drawString("Engine working", 20, 30);
+    }
+
+
 
   @Override
   public void run() {
@@ -50,7 +61,30 @@ public Engine() {
      double lastTime = System.nanoTime() / 1_000_000_000.0;
      double accumulator = 0.0;
 
+     while (running) { 
+            double currentTime = System.nanoTime() / 1_000_000_000.0;
+            double passedTime = currentTime - lastTime;
+            lastTime = currentTime;
 
+            if (passedTime > 0.25) passedTime = 0.25;
 
+            accumulator += passedTime;
+
+            while (accumulator >= timeStep) {
+                update(timeStep);
+                accumulator -= timeStep;
+            }
+
+            Graphics2D g2d = (Graphics2D) bufferStrategy.getDrawGraphics();
+            g2d.clearRect(0, 0, width, height);
+
+            render(g2d);
+            g2d.dispose();
+            bufferStrategy.show();
+    }
   }
+  public static void main(String[] args) {
+    Engine engine = new Engine();
+    engine.startgame();
+}
 }
