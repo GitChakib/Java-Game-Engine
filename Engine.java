@@ -2,9 +2,14 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFrame;
 
 public class Engine implements Runnable{
+
+    private List<Component> components = new ArrayList<>();
+    
 
     private JFrame window;
     private Canvas canvas;
@@ -33,6 +38,12 @@ public Engine() {
     window.setLocationRelativeTo(null); 
     window.setVisible(true);
 
+    components.add(new colorController());
+    canvas.addKeyListener(new Input());
+
+    canvas.setFocusable(true);
+    canvas.requestFocusInWindow();
+
   }
 
   public void startgame(){
@@ -42,15 +53,25 @@ public Engine() {
     thread.start();
   }
 
-   private void update(double dt) {
+   private void updateFrame(double dt) {
         System.out.println("frame generated with timestep: " + dt);
     }
 
     private void render(Graphics2D g2d) {
+
       g2d.setColor(java.awt.Color.BLACK);
       g2d.drawString("Engine working", 400, 300);
+
+    for (Component c : components) {
+          c.render(g2d);
+        }
     }
 
+    private void update(double dt) {
+        for (Component c : components) {
+            c.update(dt);
+        }
+    }
 
 
   @Override
@@ -71,6 +92,7 @@ public Engine() {
             accumulator += passedTime;
 
             while (accumulator >= timeStep) {
+                updateFrame(timeStep);
                 update(timeStep);
                 accumulator -= timeStep;
             }
