@@ -39,6 +39,7 @@ public Engine() {
     window.setVisible(true);
 
     components.add(new colorController());
+    components.add(new movableDot());
     canvas.addKeyListener(new Input());
 
     canvas.setFocusable(true);
@@ -72,7 +73,6 @@ public Engine() {
             c.update(dt);
         }
     }
-
 
   @Override
   public void run() {
