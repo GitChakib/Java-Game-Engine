@@ -32,6 +32,19 @@ public void update(double dt) {
 
     }
 
+    if (posX <= 0) {
+        posX = 0;
+    }
+    if (posX >= 780) {
+        posX = 780;
+    }
+    if (posY <= 0) {
+        posY = 0;
+    }
+    if (posY >= 580) {
+        posY = 580;
+    }
+
 }
 
     @Override
