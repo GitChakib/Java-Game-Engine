@@ -49,8 +49,9 @@ public void update(double dt) {
 
     @Override
     public void render(Graphics2D g2d) {
-        g2d.fillOval(posX, posY, 20, 20);
+        
         g2d.setColor(java.awt.Color.BLACK);
+        g2d.fillOval(posX, posY, 20, 20);
     }
 
 
