@@ -8,7 +8,6 @@ import javax.swing.JFrame;
 
 public class Engine implements Runnable{
 
-    private List<Background> backgrounds = new ArrayList<>();
     private List<Component> components = new ArrayList<>();    
 
     private JFrame window;
@@ -38,7 +37,7 @@ public Engine() {
     window.setLocationRelativeTo(null); 
     window.setVisible(true);
 
-    backgrounds.add(new colorController());
+    components.add(new colorController());
     components.add(new movableDot());
     canvas.addKeyListener(new Input());
 
@@ -64,9 +63,6 @@ public Engine() {
       g2d.drawString("Engine working", 400, 300);
       
 
-    for (Background b : backgrounds) {
-          b.render(g2d);
-        }
 
     for (Component c : components) {
             c.render(g2d);
@@ -74,10 +70,6 @@ public Engine() {
     }
 
     private void update(double dt) {
-
-                for (Background b : backgrounds) {
-            b.update(dt);
-        }
 
         for (Component c : components) {
             c.update(dt);
