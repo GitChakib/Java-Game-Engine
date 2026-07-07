@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 public class colorController extends Component {
 
     private Input input;
-    private Color[] colors = {Color.BLACK, Color.WHITE, Color.RED, Color.GREEN, Color.BLUE};
+    private Color[] colors = {Color.WHITE, Color.RED, Color.GREEN, Color.BLUE};
     private int currentColorIndex = 0;
 
     private boolean wasKeyPressedLastFrame = false;
@@ -22,6 +22,6 @@ public void update(double dt) {
 @Override
 public void render(Graphics2D g2d) {
     g2d.setColor(colors[currentColorIndex]);
-    g2d.fillRect(0, 0, 200, 100);
+    g2d.fillRect(0, 0, 800, 600);
 }
 }

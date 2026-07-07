@@ -38,6 +38,7 @@ public Engine() {
     window.setVisible(true);
 
     components.add(new colorController());
+    components.add(new score());
     components.add(new movableDot());
     canvas.addKeyListener(new Input());
 
@@ -59,10 +60,6 @@ public Engine() {
 
     private void render(Graphics2D g2d) {
 
-      g2d.setColor(java.awt.Color.BLACK);
-      g2d.drawString("Engine working", 400, 300);
-      
-
 
     for (Component c : components) {
             c.render(g2d);
@@ -74,6 +71,7 @@ public Engine() {
         for (Component c : components) {
             c.update(dt);
         }
+        
     }
 
   @Override
