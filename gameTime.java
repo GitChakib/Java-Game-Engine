@@ -12,13 +12,15 @@ public class gameTime extends Component {
     public void update(double dt) {
         timeInSeconds += dt;
     }
-    int seconds = (int) timeInSeconds % 60;  
+    private int seconds = (int) timeInSeconds % 60;  
 
     public int getSeconds() {
         return seconds;
     }
 
     @Override
-    public void render(Graphics2D g2d) {      
+    public void render(Graphics2D g2d) {     
+        g2d.setColor(java.awt.Color.BLACK);
+        g2d.drawString("Time: " + seconds, 350, 50); 
     }
 }

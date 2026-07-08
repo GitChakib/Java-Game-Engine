@@ -26,7 +26,6 @@ public class Sky extends Component {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -36,7 +35,4 @@ public class Sky extends Component {
     public void render(Graphics2D g2d) {
         g2d.drawImage(currentSky, 0, 0, 1920, 850, null);
     }
-
-
-    
 }
