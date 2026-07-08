@@ -17,8 +17,8 @@ public class Engine implements Runnable{
     private boolean running  = false;
 
 
-    private final int width = 800;
-    private final int height = 600;
+    private final int width = 1920;
+    private final int height = 1080;
 
     private final double fps = 60.0;
     private final double timeStep = 1.0 / fps;
@@ -38,8 +38,9 @@ public Engine() {
     window.setVisible(true);
 
     components.add(new score());
-    components.add(new Background());
+    components.add(new Sky());
     components.add(new movableDot());
+    components.add(new gameTime());
     canvas.addKeyListener(new Input());
 
     canvas.setFocusable(true);
