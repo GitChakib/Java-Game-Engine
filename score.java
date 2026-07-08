@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 
 public class score extends Component {
 
-    Font myFont = new Font("Arial", Font.BOLD, 24);
+    Font myFont = new Font("Monospaced", Font.BOLD, 24);
 
     private int score = 0;
 
