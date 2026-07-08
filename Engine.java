@@ -37,7 +37,6 @@ public Engine() {
     window.setLocationRelativeTo(null); 
     window.setVisible(true);
 
-    components.add(new colorController());
     components.add(new score());
     components.add(new movableDot());
     canvas.addKeyListener(new Input());
@@ -108,5 +107,5 @@ public Engine() {
   public static void main(String[] args) {
     Engine engine = new Engine();
     engine.startgame();
-}
+ }
 }
