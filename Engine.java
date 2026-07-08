@@ -38,6 +38,7 @@ public Engine() {
     window.setVisible(true);
 
     components.add(new score());
+    components.add(new Background());
     components.add(new movableDot());
     canvas.addKeyListener(new Input());
 
