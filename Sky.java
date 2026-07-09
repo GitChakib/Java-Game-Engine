@@ -30,9 +30,16 @@ public class Sky extends Component {
 
     @Override
     public void update(double dt) {
+        if( Engine.activeTime.getSeconds() < 5){
+            currentSky = skyArray[0];
+        } else{
+            currentSky = skyArray[1];
+            }
     }
 
     public void render(Graphics2D g2d) {
+        g2d.setColor(java.awt.Color.BLACK);
+        g2d.drawString("Timeis: " + Engine.activeTime.getSeconds(), 10, 50);
         g2d.drawImage(currentSky, 0, 0, 1920, 850, null);
     }
 }

@@ -23,6 +23,8 @@ public class Engine implements Runnable{
     private final double fps = 60.0;
     private final double timeStep = 1.0 / fps;
 
+    public static gameTime activeTime;
+
 public Engine() {
 
     window = new JFrame("Simulation");
@@ -32,6 +34,9 @@ public Engine() {
     canvas = new Canvas();
     canvas.setPreferredSize(new Dimension(width, height));
 
+    activeTime = new gameTime();
+
+
     window.add(canvas);
     window.pack();
     window.setLocationRelativeTo(null); 
@@ -40,12 +45,13 @@ public Engine() {
     components.add(new score());
     components.add(new Sky());
     components.add(new movableDot());
+    components.add(activeTime);
     components.add(new gameTime());
     canvas.addKeyListener(new Input());
 
     canvas.setFocusable(true);
     canvas.requestFocusInWindow();
-
+    
   }
 
   public void startgame(){
