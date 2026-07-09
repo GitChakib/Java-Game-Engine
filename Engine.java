@@ -44,6 +44,8 @@ public Engine() {
 
     components.add(new score());
     components.add(new Sky());
+    components.add(new Clouds());
+    components.add(new Ground());
     components.add(new movableDot());
     components.add(activeTime);
     components.add(new gameTime());
@@ -51,7 +53,7 @@ public Engine() {
 
     canvas.setFocusable(true);
     canvas.requestFocusInWindow();
-    
+
   }
 
   public void startgame(){
