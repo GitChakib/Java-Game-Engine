@@ -40,6 +40,6 @@ public class Sky extends Component {
     public void render(Graphics2D g2d) {
         g2d.setColor(java.awt.Color.BLACK);
         g2d.drawString("Timeis: " + Engine.activeTime.getSeconds(), 10, 50);
-        g2d.drawImage(currentSky, 0, 0, 1920, 850, null);
+        g2d.drawImage(currentSky, 0, 0, 1280, 720, null);
     }
 }

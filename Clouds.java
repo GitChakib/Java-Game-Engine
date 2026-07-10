@@ -37,8 +37,9 @@ public class Clouds extends Component {
     }
 
     public void render(Graphics2D g2d) {
-        g2d.drawImage(currentcloud, 0, 0, 1920, 850, null);
-    }
+
+        //just ctrl + z
+        }
 
 }
 

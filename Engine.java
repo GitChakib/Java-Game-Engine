@@ -17,8 +17,8 @@ public class Engine implements Runnable{
     private boolean running  = false;
 
 
-    private final int width = 1920;
-    private final int height = 1080;
+    private final int width = 1280;
+    private final int height = 720;
 
     private final double fps = 60.0;
     private final double timeStep = 1.0 / fps;

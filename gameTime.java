@@ -19,7 +19,6 @@ public class gameTime extends Component {
 
     @Override
     public void render(Graphics2D g2d) {     
-        g2d.setColor(java.awt.Color.BLACK);
-        g2d.drawString("Time: " + getSeconds(), 350, 50); 
+
     }
 }
