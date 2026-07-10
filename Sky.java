@@ -2,12 +2,14 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 import javax.imageio.ImageIO;
 
 public class Sky extends Component {
 
     private BufferedImage skyArray[];
     private BufferedImage currentSky;
+    private Random rand = new Random();
 
     public Sky(){
         try {
@@ -21,7 +23,7 @@ public class Sky extends Component {
             skyArray[6] = ImageIO.read(new File("Skies/Clouds 7/1.png"));
             skyArray[7] = ImageIO.read(new File("Skies/Clouds 8/1.png"));
 
-            currentSky = skyArray[0];
+            currentSky = skyArray[rand.nextInt(skyArray.length)];
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -30,11 +32,7 @@ public class Sky extends Component {
 
     @Override
     public void update(double dt) {
-        if( Engine.activeTime.getSeconds() < 5){
-            currentSky = skyArray[0];
-        } else{
-            currentSky = skyArray[1];
-            }
+ 
     }
 
     public void render(Graphics2D g2d) {

@@ -2,11 +2,13 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 import javax.imageio.ImageIO;
 
 public class Clouds extends Component {
     private BufferedImage cloudArray[];
     private BufferedImage currentcloud;
+    private Random rand = new Random();
 
     public Clouds(){
         try {
@@ -24,7 +26,7 @@ public class Clouds extends Component {
             cloudArray[10] = ImageIO.read(new File("Skies/Clouds 4/3.png"));
             cloudArray[11] = ImageIO.read(new File("Skies/Clouds 4/4.png"));
 
-            currentcloud = cloudArray[0];
+            currentcloud = cloudArray[rand.nextInt(cloudArray.length)];
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,7 +40,7 @@ public class Clouds extends Component {
 
     public void render(Graphics2D g2d) {
 
-        //just ctrl + z
+        g2d.drawImage(currentcloud, 0, 0, 1280, 720, null);
         }
 
 }

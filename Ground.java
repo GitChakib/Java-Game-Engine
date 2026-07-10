@@ -43,7 +43,7 @@ public class Ground extends Component{
 
         int tileWidth = 50;
         int tileHeight = 50;
-        int groundHeight = 500;
+        int groundHeight = 670;
 
         for (int i = 0; i < 26; i++) {
             int posX = i * tileWidth;
@@ -52,28 +52,11 @@ public class Ground extends Component{
             tiles.add(new Tile(posX, posY, texture, tileWidth, tileHeight));
         }
 
-        for (int i = 0; i < 104; i++) {
-            if (i < 26) {
+        for (int i = 0; i < 26; i++) {
                 int posX = i * tileWidth;
                 int posY = groundHeight + tileHeight;
                 BufferedImage texture = undergroundTextures[random.nextInt(undergroundTextures.length)];
                 tiles.add(new Tile(posX, posY, texture, tileWidth, tileHeight));
-            } else if (i < 52) {
-                int posX = (i - 26) * tileWidth;
-                int posY = groundHeight + 2 * tileHeight;
-                BufferedImage texture = undergroundTextures[random.nextInt(undergroundTextures.length)];
-                tiles.add(new Tile(posX, posY, texture, tileWidth, tileHeight));
-            } else if (i < 78) {
-                int posX = (i - 52) * tileWidth;
-                int posY = groundHeight + 3 * tileHeight;
-                BufferedImage texture = undergroundTextures[random.nextInt(undergroundTextures.length)];
-                tiles.add(new Tile(posX, posY, texture, tileWidth, tileHeight));
-            } else {
-                int posX = (i - 78) * tileWidth;
-                int posY = groundHeight + 4 * tileHeight;
-                BufferedImage texture = undergroundTextures[random.nextInt(undergroundTextures.length)];
-                tiles.add(new Tile(posX, posY, texture, tileWidth, tileHeight));
-            }
           }
         }
 

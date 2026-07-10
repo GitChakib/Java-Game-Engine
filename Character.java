@@ -3,7 +3,7 @@ import java.awt.event.KeyEvent;
 
 
 
-public class movableDot extends Component {
+public class Character extends Component {
 
     private Input input;
     private int posX = 400;
@@ -50,8 +50,6 @@ public void update(double dt) {
     @Override
     public void render(Graphics2D g2d) {
         
-        g2d.setColor(java.awt.Color.BLACK);
-        g2d.fillOval(posX, posY, 20, 20);
     }
 
 
