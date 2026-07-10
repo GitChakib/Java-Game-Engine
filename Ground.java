@@ -2,39 +2,51 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.imageio.ImageIO;
 
+public class Ground extends Component{
 
-public class Ground extends Component {
+    private List<Tile> tiles = new ArrayList<>();
+    private BufferedImage textures[] = new BufferedImage[8];
 
-    private BufferedImage groundArray[];
+    public Ground(){
 
-    public Ground(int selectedGround) {
         try {
-            groundArray = new BufferedImage[8];
-            groundArray[0] = ImageIO.read(new File("Enviornment/Tiles/tile22.png"));
-            groundArray[1] = ImageIO.read(new File("Enviornment/Tiles/tile23.png"));
-            groundArray[2] = ImageIO.read(new File("Enviornment/Tiles/tile24.png"));
-            groundArray[3] = ImageIO.read(new File("Enviornment/Tiles/tile25.png"));
-            groundArray[4] = ImageIO.read(new File("Enviornment/Tiles/tile26.png"));
-            groundArray[5] = ImageIO.read(new File("Enviornment/Tiles/tile27.png"));
-            groundArray[6] = ImageIO.read(new File("Enviornment/Tiles/tile28.png"));
-            groundArray[7] = ImageIO.read(new File("Enviornment/Tiles/tile29.png"));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-
+            textures[0] = ImageIO.read(new File("Enviornment/Tiles/tile23.png"));
+            textures[1] = ImageIO.read(new File("Enviornment/Tiles/tile24.png"));
+            textures[2] = ImageIO.read(new File("Enviornment/Tiles/tile25.png"));
+            textures[3] = ImageIO.read(new File("Enviornment/Tiles/tile26.png"));
+            textures[4] = ImageIO.read(new File("Enviornment/Tiles/tile27.png"));
+            textures[5] = ImageIO.read(new File("Enviornment/Tiles/tile28.png"));
+            textures[6] = ImageIO.read(new File("Enviornment/Tiles/tile29.png"));
+            textures[7] = ImageIO.read(new File("Enviornment/Tiles/tile30.png"));
         }
-    }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
 
-    @Override
-    public void update(double dt) {
-}
-    @Override
-    public void render(Graphics2D g2d) {
+        int tileWidth = 36;
+        int tileHeight = 36;
+        int groundHeight = 850;
 
         for (int i = 0; i < 8; i++) {
-            g2d.drawImage(groundArray[i], i * 240, 800, 36, 36, null);
+            int posX = i * tileWidth;
+            int posY = groundHeight;
+            BufferedImage texture = textures[i];
+            tiles.add(new Tile(posX, posY, texture, tileWidth, tileHeight));
         }
-    }
+          }
+
+
+        public void update(double dt) {
+        }
+        public void render(Graphics2D g2d){
+
+            for (Tile tile : tiles) {
+                tile.render(g2d);
+            }
+        }
+    
 }

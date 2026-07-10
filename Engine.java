@@ -45,10 +45,11 @@ public Engine() {
     components.add(new score());
     components.add(new Sky());
     components.add(new Clouds());
-    components.add(new Ground());
     components.add(new movableDot());
     components.add(activeTime);
     components.add(new gameTime());
+    components.add(new Ground());
+
     canvas.addKeyListener(new Input());
 
     canvas.setFocusable(true);

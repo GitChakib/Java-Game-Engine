@@ -35,14 +35,14 @@ public void update(double dt) {
     if (posX <= 0) {
         posX = 0;
     }
-    if (posX >= 780) {
-        posX = 780;
+    if (posX >= 1900) {
+        posX = 1900;
     }
     if (posY <= 0) {
         posY = 0;
     }
-    if (posY >= 580) {
-        posY = 580;
+    if (posY >= 1040) {
+        posY = 1040;
     }
 
 }
