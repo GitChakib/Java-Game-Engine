@@ -12,7 +12,7 @@ public class Character extends Component {
     private Input input;
     private int posX = 400;
     private int posY = 300;
-    private int width = 36;
+    private int width = 24;
     private int height = 36;
     private boolean isFacingRight = true;
 
@@ -20,7 +20,7 @@ public class Character extends Component {
     private BufferedImage runningFrames;
     private BufferedImage idleFrames;
 
-    private int spaceBetweenFramesX = 1;
+    private int spaceBetweenFramesX = 0;
     private int spaceBetweenFramesY = 1;
     private int totalIdleFrames = 4;
     private int totalRunningFrames = 6;
@@ -28,7 +28,7 @@ public class Character extends Component {
     private int currentFrameIndex = 0;
 
     private double frameTimer = 0.0;
-    private double timePerFrame = 0.1;
+    private double timePerFrame = 0.125;
 
     private BufferedImage currentImage;
 
