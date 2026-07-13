@@ -47,6 +47,7 @@ public Engine() {
     components.add(new Clouds());
     components.add(activeTime);
     components.add(new gameTime());
+    components.add(new Character());
     components.add(new Ground());
 
     canvas.addKeyListener(new Input());

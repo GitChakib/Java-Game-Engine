@@ -1,6 +1,9 @@
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 
 
@@ -9,19 +12,39 @@ public class Character extends Component {
     private Input input;
     private int posX = 400;
     private int posY = 300;
-    private int width = 50;
-    private int height = 50;
+    private int width = 36;
+    private int height = 36;
     private boolean isFacingRight = true;
 
-    private BufferedImage frame;
 
-    public Character(int posX, int posY, int width, int height, BufferedImage texture) {
-        this.posX = posX;
-        this.posY = posY;
-        this.width = width;
-        this.height = height;
-        this.frame = texture;
+    private BufferedImage runningFrames;
+    private BufferedImage idleFrames;
+
+    private int spaceBetweenFramesX = 1;
+    private int spaceBetweenFramesY = 1;
+    private int totalIdleFrames = 4;
+    private int totalRunningFrames = 6;
+
+    private int currentFrameIndex = 0;
+
+    private double frameTimer = 0.0;
+    private double timePerFrame = 0.1;
+
+    private BufferedImage currentImage;
+
+
+    public Character() {
+
+        try {
+
+            idleFrames = ImageIO.read(new File("Characters/1 Pink_Monster/Pink_Monster_Idle_4.png"));
+        }
+
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
 @Override
 public void update(double dt) {
@@ -59,6 +82,14 @@ public void update(double dt) {
         posY = 1040;
     }
 
+    
+    frameTimer += dt;
+
+    if (frameTimer >= timePerFrame) {
+        frameTimer -= timePerFrame;
+        currentFrameIndex = (currentFrameIndex + 1) % totalIdleFrames;
+    }
+
 }
 
 public void setFacingRight(boolean isFacingRight) {
@@ -68,17 +99,22 @@ public void setFacingRight(boolean isFacingRight) {
     @Override
     public void render(Graphics2D g2d) {
 
-        if (frame == null) return;
 
-        if (isFacingRight){
+        if (idleFrames == null) return;
 
-            g2d.drawImage(frame, posX, posY, width, height, null);
-        } else {
-            g2d.drawImage(frame, posX + width, posY, -width, height, null);
+        int sourceX1 = currentFrameIndex * (width + spaceBetweenFramesX);
+        int sourceY1 = 0;
 
-        }
-        
-    }
+        int sourceX2 = sourceX1 + width;
+        int sourceY2 = sourceY1 + height;
 
+g2d.drawImage(
+            idleFrames,
+            (int)posX, (int)posY,                       
+            (int)posX + width, (int)posY + height, 
+            sourceX1, sourceY1,                      
+            sourceX2, sourceY2,                      
+            null);
 
+}
 }
