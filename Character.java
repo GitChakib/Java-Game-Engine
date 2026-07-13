@@ -15,12 +15,12 @@ public class Character extends Component {
 
     private BufferedImage frame;
 
-    public Character(int posX, int posY, int width, int height, BufferedImage frame) {
+    public Character(int posX, int posY, int width, int height, BufferedImage texture) {
         this.posX = posX;
         this.posY = posY;
         this.width = width;
         this.height = height;
-        this.frame = frame;
+        this.frame = texture;
     }
 
 @Override
