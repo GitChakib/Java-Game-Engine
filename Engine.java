@@ -45,7 +45,6 @@ public Engine() {
     components.add(new score());
     components.add(new Sky());
     components.add(new Clouds());
-    components.add(new Character());
     components.add(activeTime);
     components.add(new gameTime());
     components.add(new Ground());
