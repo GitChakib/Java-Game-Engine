@@ -12,8 +12,8 @@ public class Character extends Component {
     private Input input;
     private int posX = 400;
     private int posY = 300;
-    private int width = 24;
-    private int height = 36;
+    private int width = 32;
+    private int height = 32;
     private boolean isFacingRight = true;
 
 
@@ -111,7 +111,7 @@ public void setFacingRight(boolean isFacingRight) {
 g2d.drawImage(
             idleFrames,
             (int)posX, (int)posY,                       
-            (int)posX + width, (int)posY + height, 
+            (int)posX + 64, (int)posY + 64, 
             sourceX1, sourceY1,                      
             sourceX2, sourceY2,                      
             null);
