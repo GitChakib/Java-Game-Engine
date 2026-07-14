@@ -61,25 +61,27 @@ public void update(double dt) {
     if (input.isKeyPressed(KeyEvent.VK_A)) {
         
         posX -= 5;
+        isFacingRight = false;
 
     }
     if (input.isKeyPressed(KeyEvent.VK_D)) {
 
         posX += 5;
+        isFacingRight = true;
 
     }
 
     if (posX <= 0) {
         posX = 0;
     }
-    if (posX >= 1900) {
-        posX = 1900;
+    if (posX >= 1230) {
+        posX = 1230;
     }
-    if (posY <= 0) {
-        posY = 0;
+    if (posY <= 610) {
+        posY = 610;
     }
-    if (posY >= 1040) {
-        posY = 1040;
+    if (posY >= 605) {
+        posY = 605;
     }
 
     
@@ -108,13 +110,22 @@ public void setFacingRight(boolean isFacingRight) {
         int sourceX2 = sourceX1 + width;
         int sourceY2 = sourceY1 + height;
 
-g2d.drawImage(
-            idleFrames,
-            (int)posX, (int)posY,                       
-            (int)posX + 64, (int)posY + 64, 
-            sourceX1, sourceY1,                      
-            sourceX2, sourceY2,                      
-            null);
-
-}
+        if (isFacingRight) {
+            g2d.drawImage(
+                idleFrames,
+                (int)posX, (int)posY,                       
+                (int)posX + 64, (int)posY + 64, 
+                sourceX1, sourceY1,                      
+                sourceX2, sourceY2,                      
+                null);
+        } else {
+            g2d.drawImage(
+                idleFrames,
+                (int)posX + 64, (int)posY,                       
+                (int)posX, (int)posY + 64, 
+                sourceX1, sourceY1,                      
+                sourceX2, sourceY2,                      
+                null);
+        }
+    }
 }

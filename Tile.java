@@ -18,6 +18,12 @@ public class Tile extends Component{
         this.width = width;
         this.height = height;
     }
+    public int getPosX() {
+        return posX;
+    }
+    public int getPosY() {
+        return posY;
+    }
 
     @Override
     public void update(double dt) {
