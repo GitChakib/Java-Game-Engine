@@ -14,23 +14,24 @@ public class Character extends Component {
     private int posY = 300;
     private int width = 32;
     private int height = 32;
+
+    private boolean isRunning = false;
     private boolean isFacingRight = true;
 
 
     private BufferedImage runningFrames;
     private BufferedImage idleFrames;
 
-    private int spaceBetweenFramesX = 0;
-    private int spaceBetweenFramesY = 1;
+    private int spaceBetweenFrames = 0;
     private int totalIdleFrames = 4;
     private int totalRunningFrames = 6;
 
     private int currentFrameIndex = 0;
+    private int currentFrameIndexRunning = 0;
 
     private double frameTimer = 0.0;
     private double timePerFrame = 0.125;
 
-    private BufferedImage currentImage;
 
 
     public Character() {
@@ -38,6 +39,8 @@ public class Character extends Component {
         try {
 
             idleFrames = ImageIO.read(new File("Characters/1 Pink_Monster/Pink_Monster_Idle_4.png"));
+            runningFrames = ImageIO.read(new File("Characters/1 Pink_Monster/Pink_Monster_Run_6.png"));
+
         }
 
         catch (IOException e) {
@@ -48,6 +51,11 @@ public class Character extends Component {
 
 @Override
 public void update(double dt) {
+
+
+    isRunning = false;
+
+
     if (input.isKeyPressed(KeyEvent.VK_W)) {
         
         posY -= 5;
@@ -62,14 +70,17 @@ public void update(double dt) {
         
         posX -= 5;
         isFacingRight = false;
+        isRunning = true;
 
     }
     if (input.isKeyPressed(KeyEvent.VK_D)) {
 
         posX += 5;
         isFacingRight = true;
+        isRunning = true;   
 
     }
+
 
     if (posX <= 0) {
         posX = 0;
@@ -90,6 +101,7 @@ public void update(double dt) {
     if (frameTimer >= timePerFrame) {
         frameTimer -= timePerFrame;
         currentFrameIndex = (currentFrameIndex + 1) % totalIdleFrames;
+        currentFrameIndexRunning = (currentFrameIndex + 1) % totalRunningFrames;
     }
 
 }
@@ -104,13 +116,36 @@ public void setFacingRight(boolean isFacingRight) {
 
         if (idleFrames == null) return;
 
-        int sourceX1 = currentFrameIndex * (width + spaceBetweenFramesX);
+        int sourceX1 = currentFrameIndex * (width + spaceBetweenFrames);
         int sourceY1 = 0;
 
         int sourceX2 = sourceX1 + width;
         int sourceY2 = sourceY1 + height;
 
-        if (isFacingRight) {
+        if (isFacingRight && isRunning) {
+
+            currentFrameIndex = currentFrameIndexRunning;
+
+            g2d.drawImage(
+                runningFrames,
+                (int)posX, (int)posY,                       
+                (int)posX + 64, (int)posY + 64, 
+                sourceX1, sourceY1,                      
+                sourceX2, sourceY2,                      
+                null);
+        } else if (isRunning){
+
+            currentFrameIndex = currentFrameIndexRunning;
+
+            g2d.drawImage(
+                runningFrames,
+                (int)posX + 64, (int)posY,                       
+                (int)posX, (int)posY + 64, 
+                sourceX1, sourceY1,                      
+                sourceX2, sourceY2,                      
+                null);
+        }
+        else if (isFacingRight){
             g2d.drawImage(
                 idleFrames,
                 (int)posX, (int)posY,                       
@@ -118,7 +153,10 @@ public void setFacingRight(boolean isFacingRight) {
                 sourceX1, sourceY1,                      
                 sourceX2, sourceY2,                      
                 null);
-        } else {
+
+        }
+        else {
+
             g2d.drawImage(
                 idleFrames,
                 (int)posX + 64, (int)posY,                       
@@ -126,6 +164,7 @@ public void setFacingRight(boolean isFacingRight) {
                 sourceX1, sourceY1,                      
                 sourceX2, sourceY2,                      
                 null);
+
         }
     }
 }
