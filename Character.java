@@ -1,9 +1,6 @@
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 
 
@@ -19,8 +16,8 @@ public class Character extends Component {
     private boolean isFacingRight = true;
 
 
-    private BufferedImage runningFrames;
-    private BufferedImage idleFrames;
+    protected BufferedImage runningFrames;
+    protected BufferedImage idleFrames;
 
     private int spaceBetweenFrames = 0;
     private int totalIdleFrames = 4;
@@ -35,17 +32,7 @@ public class Character extends Component {
 
 
     public Character() {
-
-        try {
-
-            idleFrames = ImageIO.read(new File("Characters/1 Pink_Monster/Pink_Monster_Idle_4.png"));
-            runningFrames = ImageIO.read(new File("Characters/1 Pink_Monster/Pink_Monster_Run_6.png"));
-
-        }
-
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+        
     }
 
 
