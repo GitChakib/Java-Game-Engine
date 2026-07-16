@@ -1,7 +1,8 @@
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 
 
 
@@ -13,14 +14,15 @@ public class CharacterSelector extends Component{
     private int posX;
     private int posY;
 
+    private boolean isSelected = false;
+
     CharacterSelector(){
 
         try {
 
-            SelectWindow = ImageIO.read(new File("Characters/1 Pink_Monster/Pink_Monster_Idle_4.png"));
+            SelectWindow = ImageIO.read(new File("Characters/CharacterSelector.png"));
             
         } 
-        
         
         
         catch (IOException e) {
@@ -29,8 +31,23 @@ public class CharacterSelector extends Component{
 
     }
 
-    
+    public void update (double dt){
 
+        if (isSelected = false){
+
+
+
+        }
+
+    
+    }
+
+    @Override
+    public void render(Graphics2D g2d){
+
+        g2d.drawImage(SelectWindow, 450, 200, 300, 350, null);
+
+    }
 
 
 
