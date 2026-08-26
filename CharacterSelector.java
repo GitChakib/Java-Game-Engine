@@ -11,8 +11,8 @@ public class CharacterSelector extends Component {
 
     private Input input;
     private boolean isSelected = false;
-    private int HoverPosX = 630;
-    private int HoverPosY = 220;
+    private int HoverPosX;
+    private int HoverPosY;
     private int selectedCharacterIndex = 0;
     private BufferedImage SelectScreen;
     private BufferedImage[] SelectHover;
@@ -30,14 +30,34 @@ public class CharacterSelector extends Component {
     public void update(double dt) {
         if (input.isKeyPressed(KeyEvent.VK_RIGHT)) {
 
-            selectedCharacterIndex = (selectedCharacterIndex++) % 3;
+            selectedCharacterIndex = (selectedCharacterIndex + 1) % 3;
 
 
         }
         if (input.isKeyPressed(KeyEvent.VK_LEFT)) {
 
-            selectedCharacterIndex = (selectedCharacterIndex--) % 3;
+            selectedCharacterIndex = (selectedCharacterIndex - 1 + 3) % 3;
 
+        }
+
+        if (selectedCharacterIndex == 0) {
+                HoverPosX = 515;
+                HoverPosY = 250;
+            } else if (selectedCharacterIndex == 1) {
+                HoverPosX = 635;
+                HoverPosY = 250;
+            } else if (selectedCharacterIndex == 2) {
+                HoverPosX = 575;
+                HoverPosY = 370;
+            }
+
+        if(input.isKeyPressed(KeyEvent.VK_ENTER)) {
+
+            isSelected = true;
+
+            if (selectedCharacterIndex == 0) {
+                components.add(new Character());
+            }
         }
 
 }
