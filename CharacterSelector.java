@@ -1,9 +1,8 @@
+import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
-import java.util.Random;
 import javax.imageio.ImageIO;
 
 
@@ -11,10 +10,12 @@ import javax.imageio.ImageIO;
 public class CharacterSelector extends Component {
 
     private Input input;
-    int posX;
-    int posY;
+    private boolean isSelected = false;
+    private int HoverPosX = 630;
+    private int HoverPosY = 220;
+    private int selectedCharacterIndex = 0;
     private BufferedImage SelectScreen;
-    private BufferedImage[] SelectBorder;
+    private BufferedImage[] SelectHover;
 
     public CharacterSelector() {
         try {
@@ -27,10 +28,25 @@ public class CharacterSelector extends Component {
 
     @Override
     public void update(double dt) {
-        if (input.isKeyPressed(KeyEvent.VK_D)) {
-            posX = 100;
-            posY = 100;
+        if (input.isKeyPressed(KeyEvent.VK_RIGHT)) {
+
+            selectedCharacterIndex = (selectedCharacterIndex++) % 3;
+
+
+        }
+        if (input.isKeyPressed(KeyEvent.VK_LEFT)) {
+
+            selectedCharacterIndex = (selectedCharacterIndex--) % 3;
+
         }
 
 }
+@Override
+
+    public void render(Graphics2D g2d) {
+        g2d.drawImage(SelectScreen, 500, 200,220, 300, null);
+        g2d.setColor(java.awt.Color.ORANGE);
+        g2d.setStroke(new BasicStroke(5));
+        g2d.drawRoundRect(HoverPosX, HoverPosY, 70, 100, 20, 20);
+    }
 }
