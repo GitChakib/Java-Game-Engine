@@ -1,55 +1,36 @@
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 import javax.imageio.ImageIO;
 
 
 
+public class CharacterSelector extends Component {
 
-public class CharacterSelector extends Component{
+    private Input input;
+    int posX;
+    int posY;
+    private BufferedImage SelectScreen;
+    private BufferedImage[] SelectBorder;
 
-    private BufferedImage SelectWindow;
-
-    private int posX;
-    private int posY;
-
-    private boolean isSelected = false;
-
-    CharacterSelector(){
-
+    public CharacterSelector() {
         try {
 
-            SelectWindow = ImageIO.read(new File("Characters/CharacterSelector.png"));
+            SelectScreen = ImageIO.read(new File("Characters/CharacterSelector.png"));
             
-        } 
-        
-        
-        catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
         }
-
-    }
-
-    public void update (double dt){
-
-        if (isSelected = false){
-
-
-
-        }
-
-    
     }
 
     @Override
-    public void render(Graphics2D g2d){
+    public void update(double dt) {
+        if (input.isKeyPressed(KeyEvent.VK_D)) {
+            posX = 100;
+            posY = 100;
+        }
 
-        g2d.drawImage(SelectWindow, 450, 200, 300, 350, null);
-
-    }
-
-
-
-    
+}
 }
