@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 public class Engine implements Runnable{
 
     private List<Component> components = new ArrayList<>();    
+    private static List<Component> componentsStatic = new ArrayList<>();
 
     private JFrame window;
     private Canvas canvas;
@@ -83,6 +84,10 @@ public Engine() {
             c.update(dt);
         }
         
+    }
+
+    public static void addComponent(Component c) {
+        componentsStatic.add(c);
     }
 
   @Override

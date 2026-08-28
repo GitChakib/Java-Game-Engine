@@ -56,7 +56,16 @@ public class CharacterSelector extends Component {
             isSelected = true;
 
             if (selectedCharacterIndex == 0) {
-                components.add(new Character());
+
+                Engine.addComponent(new Owly());
+            }
+            else if (selectedCharacterIndex == 1) {
+
+                Engine.addComponent(new Pinky());
+            }
+            else if (selectedCharacterIndex == 2) {
+
+                Engine.addComponent(new Durdle());
             }
         }
 
