@@ -80,6 +80,13 @@ public Engine() {
 
     private void update(double dt) {
 
+        if (!componentsStatic.isEmpty()) {
+
+        components.addAll(componentsStatic);
+        componentsStatic.clear();
+        }
+
+
         for (Component c : components) {
             c.update(dt);
         }

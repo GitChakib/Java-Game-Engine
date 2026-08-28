@@ -15,7 +15,9 @@ public class CharacterSelector extends Component {
     private int HoverPosY;
     private int selectedCharacterIndex = 0;
     private BufferedImage SelectScreen;
-    private BufferedImage[] SelectHover;
+    private boolean rightWasPressed = false;
+    private boolean leftWasPressed = false;
+    private boolean enterWasPressed = false;
 
     public CharacterSelector() {
         try {
@@ -28,13 +30,19 @@ public class CharacterSelector extends Component {
 
     @Override
     public void update(double dt) {
-        if (input.isKeyPressed(KeyEvent.VK_RIGHT)) {
+
+        boolean rightIsDown = Input.isKeyPressed(KeyEvent.VK_RIGHT);
+        boolean leftIsDown  = Input.isKeyPressed(KeyEvent.VK_LEFT);
+        boolean enterIsDown = Input.isKeyPressed(KeyEvent.VK_ENTER);
+
+
+        if (rightIsDown && !rightWasPressed) {
 
             selectedCharacterIndex = (selectedCharacterIndex + 1) % 3;
 
 
         }
-        if (input.isKeyPressed(KeyEvent.VK_LEFT)) {
+        if (leftIsDown && !leftWasPressed) {
 
             selectedCharacterIndex = (selectedCharacterIndex - 1 + 3) % 3;
 
@@ -51,7 +59,7 @@ public class CharacterSelector extends Component {
                 HoverPosY = 370;
             }
 
-        if(input.isKeyPressed(KeyEvent.VK_ENTER)) {
+        if(enterIsDown && !enterWasPressed) {
 
             isSelected = true;
 
@@ -69,10 +77,17 @@ public class CharacterSelector extends Component {
             }
         }
 
+        rightWasPressed = rightIsDown;
+        leftWasPressed = leftIsDown;
+        enterWasPressed = enterIsDown;
+
 }
 @Override
 
     public void render(Graphics2D g2d) {
+        if (isSelected) {
+            return;
+        }
         g2d.drawImage(SelectScreen, 500, 200,220, 300, null);
         g2d.setColor(java.awt.Color.ORANGE);
         g2d.setStroke(new BasicStroke(5));
