@@ -90,6 +90,7 @@ public class CharacterSelector extends Component {
         }
         g2d.drawImage(SelectScreen, 500, 200,220, 300, null);
         g2d.setColor(java.awt.Color.ORANGE);
+        g2d.drawString("Press Enter to Select --- Use Arrow Keys to Navigate --- Use WASD to Move", 150, 100);
         g2d.setStroke(new BasicStroke(5));
         g2d.drawRoundRect(HoverPosX, HoverPosY, 70, 100, 20, 20);
     }
