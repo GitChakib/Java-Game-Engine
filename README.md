@@ -1,4 +1,5 @@
 
+
   <h1>🎮 Pixel Engine</h1>
 
   <p>
@@ -68,6 +69,8 @@ graph TD
 
 - Make sure you have the whole project downloaded or else some assets could be missing
 - I didn't make an executable so it can only be ran through an IDE
-- Can be easily tinkered with using the Component object, just create a new Object, extend it to Component and try it! 
+- Can be easily tinkered with using the Component object, just create a new Object, extend it to Component and try it!
+
+- <img width="792" height="234" alt="Recording 2026-09-25 200824" src="https://github.com/user-attachments/assets/ac4cb201-35f5-47d5-93dc-08c5d831c9be" />
 
 
