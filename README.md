@@ -41,8 +41,10 @@
 ```mermaid
 graph TD
     A[Game Application] --> B["Graphics libraries (Graphics 2D and Jframe)"]
-    B --> C["Game Loop (update(cd))"]
-    C --> D[Component Object]
+    A --> C["Game Loop (update(cd))"]
+    
+    B --> D[Component Object]
+    C --> D
     
     D --> E[Character]
     D --> F[Terrain]
