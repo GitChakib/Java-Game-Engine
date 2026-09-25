@@ -1,6 +1,6 @@
 
 
-  <h1>🎮 Pixel Engine</h1>
+  <h1 align="center">🎮 Pixel Engine</h1>
 
   <p>
     <strong>A lightweight, cross-platform 2D game engine built in Java.</strong>
