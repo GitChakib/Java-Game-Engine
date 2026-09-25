@@ -2,7 +2,7 @@
 
   <h1 align="center">🎮 Pixel Engine</h1>
 
-  <p>
+  <p align="center">
     <strong>A lightweight, cross-platform 2D game engine built in Java.</strong>
   </p>
 
