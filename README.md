@@ -1,4 +1,3 @@
-<img width="190" height="184" alt="Recording 2026-09-25 194238" src="https://github.com/user-attachments/assets/4ddf3b14-e6f4-4e48-8571-f44046614a47" /><div align="center">
 
   <h1>🎮 Pixel Engine</h1>
 
@@ -7,9 +6,6 @@
   </p>
 
   <!-- BADGES -->
-  <p>
-    <a href="(https://github.com/GitChakib/Java-Game-Engine)"><img src="https://img.shields.io/github/stars/your-username/zenith-engine?style=for-the-badge&color=yellow" alt="Stars"></a>
-  </p>
 
   <p>
     <a href="#-features">Features</a> •
@@ -41,3 +37,18 @@
 ---
 
 ## 🏗 Architecture Overview
+
+```mermaid
+graph TD
+    A[Game Application] --> B["Graphics libraries (Graphics 2D and Jframe)"]
+    B --> C["Game Loop (update(cd))"]
+    C --> D[Component Object]
+    
+    D --> E[Character]
+    D --> F[Terrain]
+    D --> G[Sky]
+    D --> H[Clouds]
+    D --> I[Timer]
+```
+
+
