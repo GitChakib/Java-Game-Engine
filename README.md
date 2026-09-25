@@ -23,7 +23,7 @@
 <div align="center">
   
 
-<img width="190" height="184" alt="Recording 2026-09-25 194238" src="https://github.com/user-attachments/assets/e50f5d4d-5d1f-4289-ad8b-339b72eb5512" />
+<img width="792" height="234" alt="Recording 2026-09-25 200824" src="https://github.com/user-attachments/assets/ac4cb201-35f5-47d5-93dc-08c5d831c9be" />
 
 </div>
 
@@ -36,6 +36,13 @@
 - 📐 **Collision System:** Rigid-body Collision.
 
 ---
+
+<div align="center">
+  
+
+<img width="190" height="184" alt="Recording 2026-09-25 194238" src="https://github.com/user-attachments/assets/e50f5d4d-5d1f-4289-ad8b-339b72eb5512" />
+
+</div>
 
 ## 🏗 Architecture Overview
 
@@ -71,6 +78,5 @@ graph TD
 - I didn't make an executable so it can only be ran through an IDE
 - Can be easily tinkered with using the Component object, just create a new Object, extend it to Component and try it!
 
-- <img width="792" height="234" alt="Recording 2026-09-25 200824" src="https://github.com/user-attachments/assets/ac4cb201-35f5-47d5-93dc-08c5d831c9be" />
 
 
