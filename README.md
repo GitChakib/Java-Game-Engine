@@ -8,12 +8,6 @@
 
   <!-- BADGES -->
 
-  <p>
-    <a href="#-features">Features</a> •
-    <a href="#-architecture">Architecture</a> •
-    <a href="#-getting-started">Getting Started</a> •
-    <a href="#-quick-example">Code Example</a>
-  </p>
 
 </div>
 
