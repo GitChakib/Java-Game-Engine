@@ -53,4 +53,21 @@ graph TD
     D --> I[Timer]
 ```
 
+## 🛠 Tech Stack & Dependencies
+
+- **Language:** JAVA 27
+- **Libraries:** Swing and AWT (Should be built in JAVA)
+
+
+---
+### Prerequisites
+
+- Ensure you have a JAVA 27 compatible IDE and JAVA 27, Also JDK HAS to be installed (if you want to add new things)
+
+## 🚀 Getting Started
+
+- Make sure you have the whole project downloaded or else some assets could be missing
+- I didn't make an executable so it can only be ran through an IDE
+- Can be easily tinkered with using the Component object, just create a new Object, extend it to Component and try it! 
+
 
